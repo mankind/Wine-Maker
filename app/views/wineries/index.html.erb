@@ -1,0 +1,10 @@
+<% @wineries.each do |winery| %>
+  <h2><%= link_to winery.name, winery %></h2>
+  <div class="entry">
+    <%= link_to "Edit", edit_winery_path %>
+    <br/>
+    <%= button_to "Delete", winery,
+         :confirm => "Are you sure?", :method => delete %>
+  </div>
+    <%= link_to "New", new_winery_path %>
+<% end %>

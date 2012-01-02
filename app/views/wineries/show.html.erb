@@ -1,0 +1,39 @@
+
+<div class="winery" >
+  <p><%= @winery.name %><p>
+  <p><%= @winery.city %><p>
+  <p><%= @winery.state %><p>
+  <p><%= @winery.country %><p>
+</div>
+
+<h2> Wines </h2>
+
+<% @winery.wines.each do |wine| %>
+
+  <div class="wines">
+   <%= wine.name %>
+   <%= wine.year %>
+   <%= wine.family.
+  </div>
+
+  <p>
+    <%= button_to "Delete", [@winery, wine],
+      :confirm => "Are you sure?", :method => :delete %>
+  </p>
+
+<% end %>
+<% form_for [@winery, Wines.new] do |form| %>
+  <% form.error_messages%>
+
+  <% form.label :name, "Name" %>
+  <% form.text_field :name %>
+
+  <% form.label :year, "Year" %>
+  <% form.text_field :year %>
+
+  <% form.label :family, "Family" %>
+  <% form.collection_select :family, Wine::FAMILIES  %>
+
+  <% form.submit" %>
+
+<% end %>
